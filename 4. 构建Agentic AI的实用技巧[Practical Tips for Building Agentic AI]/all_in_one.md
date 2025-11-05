@@ -1,4 +1,4 @@
-## 一、评估（Evals）——构建代理式人工智能工作流程的实用技巧
+## 一、 评估（Evals）——构建代理式人工智能工作流程的实用技巧
 
 在构建Agentflow/Workflow时，如何提升效果是个重要问题。而想提升效果，就要研究到底是哪个环节导致了效果变差——此时，就要请出我们的评估系统了。
 
@@ -16,15 +16,15 @@
 
 **案例一：发票处理工作流程（提取到期日）**
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=OWRjYWE0YWRiNWUzZmI2OGY3MmQ0OTkzNzc3ZjdiMzRfam9MQWR4TnY3NmNuUHhaYVMzSUt0WW5EMktrcnd4aHlfVG9rZW46R2UwWGJZTGcxb0hPUkh4WWV6TmNEazU3bm5mXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=YWI1NTAzNzJiOTVkZGVkMTczZDhmYzA1MTVlOTVlNmFfUHgyd2tTYlE1VW4zOG1WWUJwanZBN1R0TEVDRmZEcllfVG9rZW46R2UwWGJZTGcxb0hPUkh4WWV6TmNEazU3bm5mXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 本系统想要从发票中提取四个必填字段并保存，特别是到期日，用于及时付款。
 
-1. 通过手动测试并检查 10-20 张发票的输出，发现一个常见的出错点是系统混淆了发票的开具日期和到期日。
+通过手动测试并检查 10-20 张发票的输出，发现一个常见的出错点是系统混淆了发票的开具日期和到期日。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=OTRlOTIwZDkzZTliMTQ0MzYwN2EzZjc1NDI0NmUxYWRfWWVqZmt6VEo4ME1PT0F6dE1zdG1mYWZZd2hkR2NPR2tfVG9rZW46V1F5TGJCRzZLb0hJR2h4RFZ2ZGNxeDNhbkw5XzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NzYwYTJlMzI1NDMwZTM5YWY4NjA4MmZjZWUzMThmMzJfWU9iQ3J4cFFpUUpYNENnVDJPZ0ZrUDZ0aUMzc1FsTkhfVG9rZW46V1F5TGJCRzZLb0hJR2h4RFZ2ZGNxeDNhbkw5XzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
-1. 进而，我们需要改进系统以更好地提取到期日，并编写一个评估（Eval）来衡量日期提取的准确性。
+进而，我们需要改进系统以更好地提取到期日，并编写一个评估（Eval）来衡量日期提取的准确性。
 
 具体怎么构建这个评估呢？
 
@@ -41,9 +41,9 @@
 
 本系统希望实现为 Instagram 图片生成标题，要求标题最多 10 个词。
 
-1. 通过观察输出，发现生成的文案内容还不错，但经常超过 10 个词的长度限制。
+通过观察输出，发现生成的文案内容还不错，但经常超过 10 个词的长度限制。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjA4MDA1ZjY2NWRmNGYxODc3NWJmOTk1OWJmOTM4MzlfTVBqak1JOUZtR3h1cjlyY0FlNWdGWURHVTVTSXg1aHhfVG9rZW46TUE1SWJyalhjb3NRM3V4RVpZNmNYb01rblFoXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NmUwOGM5ODRhMTM4Y2I4OGY3MTA2ZTc3YWVlMzVmYWJfNjVYOURocDd3UjNNcURFZGs2RjlXQWJyRjI3T1B5aW9fVG9rZW46TUE1SWJyalhjb3NRM3V4RVpZNmNYb01rblFoXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 于是很显然的，我们就可以这样构建评估：
 
@@ -62,7 +62,7 @@
 
 通过检查输出，我们发现对于人类专家撰稿人会捕捉到的高知名度或重要观点，Agent生成的文章有时会遗漏。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjUxYTc1OTljNGQzYjI3YWRkYTZjZTVlMzllNTBlMTVfQW5IelJFV2VPSnlQd1czQmN3WVJPeUFORUh2ZFEwUzNfVG9rZW46S200M2Jtb09lbzZROHd4M1NUWWNqUXBsbjBiXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmE1MDFlZDQ3NjQ3NTY3MGE5MjYzOTEyMmFhYzlhZTNfbGhNN3loQ1hicGFxdXhmZ3pvV2pueVYzeE42TjBCalFfVG9rZW46S200M2Jtb09lbzZROHd4M1NUWWNqUXBsbjBiXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 所以我们可以这样构建评估：
 
@@ -128,7 +128,7 @@
 
 **案例一：发票处理（也就是我们在第一节见到的）**
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NTg0MjA0MDExM2JlYTJjMzU2YmQ1ZjVkMDFmZDU5N2JfZXVwTmJOZTVBMjVVU0NTVnRPa0lpZGROVWtmcDBubTJfVG9rZW46SDRaa2JVOU9qb3p1aHF4bFVtSGNaNFE4bjRiXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=MzJmNzRmYTk5ODU4NjJjNGQwMGJkY2NhOWI3MWM3ZDdfckFnMzBvU1ZENjZnUklYWEEzZEF6YTBMdFZwNVkzTUhfVG9rZW46SDRaa2JVOU9qb3p1aHF4bFVtSGNaNFE4bjRiXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 工作流程： PDF - (PDF 转文本) - (LLM 数据提取) - 数据库记录。
 
@@ -149,7 +149,7 @@
 
 **案例二：回复客户邮件**
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=Nzk5YWFmMjM2NTkzMmFhZTlkZDEyOGRmYmM2ZGEwZjZfNDk2ZmlBd0JaN0RMQkV5UzI0bTc0RXlDaDVBWmdhUjRfVG9rZW46THZuNGJrYUVabzg5Mmt4RUdhS2MzMlZBbmpyXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=YTk5OWM0YTUzOWM0NDRhN2JkMzYyZmYwODQxNzFiNDhfRXhPY1JNR3BCdFBOS2JOdTVGMU1YSWNNR295VzZvdExfVG9rZW46THZuNGJrYUVabzg5Mmt4RUdhS2MzMlZBbmpyXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 工作流程： 客户邮件 - (LLM 编写数据库查询) - 数据库 - (LLM 起草回复) - 人工审核。
 
@@ -178,7 +178,7 @@
 
 接下来，我们以研究Agent的网页搜索为例，构建组件级评估。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjI1NzQ4MjE2ODdkODA5M2Q5ZTM2OGI0Y2UyZDg0MjdfVVRFbVhMQm9YRFJEVlc4R2RVak5BZzJqYVZLNjdGMTNfVG9rZW46U09qd2J3UU9lb0s5Sk54NWNxSGNNMzBkblFoXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=MGM1ZTIzMGYyZTdkYWYyMmQwYmI5YTA2MWNlODFmYTRfYmVIT0J3RTNBbDAxOHpnY2FsYXBSUkpOczdRaGJIb2JfVG9rZW46U09qd2J3UU9lb0s5Sk54NWNxSGNNMzBkblFoXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 * 问题： 错误分析表明研究代理遗漏关键点的问题主要出在网页搜索组件上。
 * 构建评估方法：
@@ -216,22 +216,22 @@
 如果你之前也做过类似工作，那你一定拥有一定程度的模型选择直觉
 
 > 比如笔者对于当前时间节点（2025年11月初）的模型，就认为Qwen比较嘴硬，Gemini2.5比较逆来顺受，GPT比较言简意赅，DeepSeek比较有创意和鬼点子。不同模型擅长的领域也不一样，比如Gemini对一口气生成上千行代码非常在行，而Claude对在现有系统里做小范围修改更有心得。如果谈到具体任务，那么嘴硬的Qwen就更适合用作一些比较严谨的，比如数据报表查询场景。又比如非常有逻辑但容易过度自信的KimiK2，就能在中低难度场景以简短而有信服力的输出大放异彩，但在比较复杂的场景要做好它过于自信而出错的心理准备。
-> 
+>
 > 在模型层面以外，还有其他类型的直觉，比如在笔者感受中，大参数模型通常比小参数模型的情商更高，对模糊指令的理解能力更强。最典型的例子是今年年初发布的昂贵的GPT-4.5，甚至可以在时下流行的“山东饭局”风格高情商场景下讲出让人眼前一亮的回复。
-> 
+>
 > 又比如，新架构+大参数量的模型，一般在多步骤复杂指令的任务中，能够完美地列出并编辑所有敏感信息，而较小的模型容易出错或遗漏信息。
 
 拥有对不同 LLM 能力的直觉，能使开发者更高效地选择模型和编写提示词。这样的直觉要如何培养？
 
 1. 频繁试玩不同模型： 经常测试新的闭源和开源模型，观察它们在不同查询上的表现。
 
-> 笔者对自己的要求是，至少有3\~5种主力使用的模型（同一提供商只计算一次），并保持一个月内至少使用过10种以上模型，并能报出20种以上模型的型号。
+> 笔者对自己的要求是，至少有3~5种主力使用的模型（同一提供商只计算一次），并保持一个月内至少使用过10种以上模型，并能报出20种以上模型的型号。
 
 2. 建立个人评估集： 使用一套固定的评估任务来校准不同模型的能力。
 3. 阅读他人的提示词： 大量阅读从业者、专家或开源框架中的提示词，了解不同任务/模型/场景下的最佳实践，提高自己编写提示词的能力。
 4. 在工作流程中尝试： 实际在Agent工作流程中尝试不同的模型，查看追踪 (Traces) 和组件/端到端评估，观察它们在特定任务中的性能、价格和速度的权衡。
 
-## 五、代理式 AI 工作流程的成本与延迟优化（**Latency, cost optimization**）
+## 五、代理式 AI 工作流程的成本与延迟优化（ **Latency, cost optimization** ）
 
 在系统输出质量达到要求后，下一个优化重点是：优化工作流程的延迟和成本。
 
@@ -243,7 +243,7 @@
 
 优化延迟的关键在于进行计时基准测试，找出工作流程中的瓶颈。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NDQzMTNiYTg1MDQxZWY1NTQyMDRiOWEzNDA1NDM5MDRfZGYyZFh0bjBhMnV5SXl6U0pHeVViTHZUZnp6Ym16UG5fVG9rZW46VnRNeWJxcXBPb3paNkd4Y0p6TGNFSzhtbmNkXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=MGJiMGQ2YjM1ZDRjZGI3MjRmY2UwMTU0Mjk5NmE5OTBfOUMzSXBmYjQzY0dnYldtR2VmejgxSThqNzdvZ2hwb3dfVG9rZW46VnRNeWJxcXBPb3paNkd4Y0p6TGNFSzhtbmNkXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 * 计时分析： 详细记录工作流程中每个步骤所花费的时间（例如：LLM 1 耗时 7 秒，LLM 3 耗时 18 秒）。
 * 定位瓶颈： 通过时间线分析，确定耗时最长的组件，从而确定最大的提速空间。
@@ -257,7 +257,7 @@
 
 优化成本的关键在于进行成本基准测试，找出最昂贵的步骤。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=ODQ4NTYyMDdiZDkwNTQ1YjBjY2NjYWY0MzFiNjE5NzNfQ3BvQUxodWRFT2MybUdXbTZ1dmVidmdvdWZwQkF5NGtfVG9rZW46Rm5kcWJ4eWFBb2FUc1V4aXdlaWN6M05mbkplXzE3NjIyNjE0ODE6MTc2MjI2NTA4MV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NmEwNzcxNjg4NzMxYmM4OGE2NjdhNGE3YWYxZDM1MzVfRm91Z3FLZklOcDB0Z2xMV3JiNURnYXlhOXBZVGtDSWNfVG9rZW46Rm5kcWJ4eWFBb2FUc1V4aXdlaWN6M05mbkplXzE3NjIzMDk1NzE6MTc2MjMxMzE3MV9WNA)
 
 * 成本计算： 计算工作流程中每个步骤的平均成本：
   * LLM： 按输入和输出的 Token 长度收费。
@@ -266,7 +266,7 @@
 * 定位瓶颈： 确定成本贡献最大的组件。
 * 优化手段： 寻找更便宜的组件或 LLM 来替代高成本的组件，以最大化成本优化机会。
 
-## 六、详细总结：代理式 AI 系统开发流程与迭代循环（**Development process summary**）
+## 六、详细总结：代理式 AI 系统开发流程与迭代循环（ **Development process summary** ）
 
 对于我们开发者而言，在开发Agent工作流时，主要精力通常集中在以下两项活动中，并不断来回切换：
 
@@ -291,4 +291,3 @@
 本模块希望带来的核心认知，就是一套系统化的开发流程（评估，错误分析，改进）。只有这种系统化的开发流程，才能支撑起足够复杂的Agent系统。
 
 在下一模块，我们会了解到更高级的设计模式。
-

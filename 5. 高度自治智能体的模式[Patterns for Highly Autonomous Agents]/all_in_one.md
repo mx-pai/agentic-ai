@@ -1,5 +1,3 @@
-# 人工总结
-
 ## 一、规划设计模式与高度自主代理（ **Planning workflows** ）
 
 就像复杂软件系统需要工厂模式、单例模式、依赖倒置等等设计模式和原则一样，Agent系统想要实现复杂度与效率并重，也需要一些设计模式。
@@ -10,7 +8,7 @@
 
 **真实案例：客服助理Agnet**
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=MTUzZGQwMDA5MjkzNTE2NjA4ZmI4NTZiODM1MGE2OTdfWVVYVjdKYVVQMnpWRzlkYUNpMk9vZ1U5bVZpMGNEcXVfVG9rZW46VGFtSGIxRGlIb3BqVFZ4YURBNWNDSU05bmdDXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=MzQ2ZjRlMGM1MmUyYzNlOWIzODMwOWQzMmY3MzY4YmNfUWhOQjNoODhDZDloSTJlSmw0WkRKMjVuajhzZEpDTVpfVG9rZW46VGFtSGIxRGlIb3BqVFZ4YURBNWNDSU05bmdDXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
 * 目标： 构建能够回答广泛、复杂查询的代理，在运行时灵活地决定采取哪些行动。在本系统中，是一个能够回答客户像“你们有没有库存中售价低于100美元的圆形太阳眼镜？”这类复杂问题的Agent。
 * 方法：
@@ -59,7 +57,7 @@
 
 为了实现结构化输出，开发者应该这样写 LLM 指示词：“你可以访问以下工具，并需要以 JSON 格式创建一个分步计划”，同时详细描述所需的 JSON 结构。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NTNmOTBkYzY1MGM5ZWNmYjg3NDkxMGEyZjdlNDYzMmNfeDdreklFZ1RhbDVKa2VYSUdud0RKcE9LSnNlaTZueHZfVG9rZW46QW1KTGJOS2Fkb0drV2x4b1Jmd2M3R0MyblRnXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NDYxMzk0YTA2YjYzNWQ5ZmE4NTk2YzVlMzc1NjE0ZjhfOGk2aVcwSU01cjFwQ0pSMkh3VDlOUW1ibWxXRlUzTmxfVG9rZW46QW1KTGJOS2Fkb0drV2x4b1Jmd2M3R0MyblRnXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
 LLM 会返回一个 JSON 列表，列表中的每个对象代表一个步骤，包含清晰的键值：
 
@@ -85,7 +83,7 @@ LLM 会返回一个 JSON 列表，列表中的每个对象代表一个步骤，�
 * 高表达能力： LLM 能够编写简洁的代码来表达一个涉及多步骤、复杂逻辑的计划，例如解析日期、按日期排序、过滤、去重、计数。
 * 性能更优： 研究表明，在许多任务中，让 LLM 编写代码来采取行动的性能**优于**让它编写 JSON 或纯文本计划。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NGFkMzc1ZTljNzI3Zjk0NmNmMWUwYTQ4ZjMzYzAwYzNfREZPUGRHbTJJOUVlN2tNVTRnSDVZQ1QwYVBVVnVpSVdfVG9rZW46THd4YWJxTDF1b1RTbHF4b0xZemN4NHR5bnZnXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NTRjNWMzY2JkMjFkNjIxZjEzYTcxMjcyNjY3MDZlZjdfMW05WU83REhTS3V2Zk9PODdLT2FtdDR3YW92cVZ1Nk1fVG9rZW46THd4YWJxTDF1b1RTbHF4b0xZemN4NHR5bnZnXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
 不过，这种CodeAgent的形式也有些需要注意的风险点：
 
@@ -108,9 +106,9 @@ LLM 会返回一个 JSON 列表，列表中的每个对象代表一个步骤，�
 
 下图就是一个拆分市场Agent的例子，拆出了调研、生成报表、创建文件三个子Agent
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=NTkxMDQ5NTY2NDgwYjhiNDk1YTFmNGZlNTBiMWIwNzdfYk94TXRqbWd5Q0h1ZlNxODJONDBZTk1SMUJ5c3A5N0JfVG9rZW46Q3czY2JOYmZNb0hueVJ4VFI5aWM0cXRmbmxoXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDUyNTczODgzZWE4MTYzZTAxMzhjOGY2ZTcxNjAwYzdfYzhJNEdvSDY0eHpzNVNKS0ZkTDJQbzZ4Um9WbzU1aEpfVG9rZW46Q3czY2JOYmZNb0hueVJ4VFI5aWM0cXRmbmxoXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjkxMmVhMGQwY2Q2ZjljYmJiYzA1ODdlYWI5ZThmNzdfQUxMRG1EZTJOSlRZcjgzMVdMMktGU3ZSSGRqdkh1c2xfVG9rZW46S3VyZGI2Vmlib0VCVDJ4SW96ZWNySW9ObnJkXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2I5NTg3OWU3YzY4MWFjYmI0ZjI4MzQ0ZTFhMzJhNjNfTVdBeUV5eXowODhsN0s4ZnB4VU5qSFN6Qm5PaHpmaVZfVG9rZW46S3VyZGI2Vmlib0VCVDJ4SW96ZWNySW9ObnJkXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
 MultiAgent系统具有以下优势：
 
@@ -151,7 +149,7 @@ MultiAgent系统具有以下优势：
 有一个“管理员（Manager Agent）”负责协调所有下属Agent。
 就像项目负责人依次给研究员、设计师、写手分配任务，收集结果，再整合。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=MmI5NmVlMTVkMmQwZDYzZDRkYTQ1Y2MzZWFjMDBmZDVfakpBMU9tUDJQVm9pOGdJVFVqQ3RTaldBekI3aTFreFpfVG9rZW46VmpxOGJVdmNGb2FQd2p4QzFIcmNkUXlNbk9iXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=OGM4OGQ4MGFiMTg4YmMwZTliYWFjZDNlNDBkOWI2ODZfdnVLdzVYSHRybFNaOWI3NnVGV1k4R1pnU2JXekxWWlFfVG9rZW46VmpxOGJVdmNGb2FQd2p4QzFIcmNkUXlNbk9iXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
 双层模式下，所有通信都经过经理；
 
@@ -165,7 +163,7 @@ MultiAgent系统具有以下优势：
 一些高级系统会让子Agent自己也拥有下属Agent。
  例如“研究员”下面有“网页研究员”和“事实核查员”，“作家”下面有“风格写手”和“引用校对员”。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=OWY3NTlkN2FlMDAwNTQyNTZhMDc4MDdlMjcwOTg3MjlfNWsweXJVeEhRam9OcVdSNVF0RVR1MUo5RmthNFBZMExfVG9rZW46THFkU2JkUjhab0pKSVV4ckpva2NCOHFmbjJmXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTY1NzkxNmQ4NDVjZmZlODMyYzE0NDc3ZDcwMTgyN2NfbVFOaWx5M09EYmduaVdPUGJLQ3VqTUdNZjRYS1lSM1lfVG9rZW46THFkU2JkUjhab0pKSVV4ckpva2NCOHFmbjJmXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
 * 优点：可扩展、模块化、可分层调度；
 * 缺点：通信复杂、难以调试、出错难追踪。
@@ -178,7 +176,7 @@ MultiAgent系统具有以下优势：
 
 每个Agent都知道其他Agent是谁，他们可以互相发消息，谁都可以决定何时回复。直到最后大家都“认为任务完成”时，产出最终结果。
 
-![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=YWMyZDc1ZTRhNDQxZTE4ZDU3NTg5Y2NhNmRjZmE2ODBfQ2dlUHpjWTNzNFBITk5tSHZTZUdtcTlab1lUcFFjMnhfVG9rZW46T3ZxOWJ4ekQ2b3ZYak54MXROb2NLMmFJbjZjXzE3NjIzMDU2MDU6MTc2MjMwOTIwNV9WNA)
+![](https://ucn3l6pxxkfq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjIyYTc1N2E5NjY3ZDE5YTI1ZTQ1MzgyNzcxNGI1OGJfb2oxZ1N2ZVpZN2pCNEFMaDNYQzdFU2VNQlVSUTN0VENfVG9rZW46T3ZxOWJ4ekQ2b3ZYak54MXROb2NLMmFJbjZjXzE3NjIzMDk4OTg6MTc2MjMxMzQ5OF9WNA)
 
 特点：高度去中心化、非常灵活、创意性强，但也 难以预测结果。
 
@@ -201,7 +199,7 @@ MultiAgent系统具有以下优势：
 >
 > 在常见的Agent框架中，langchain是忠实的线性结构，smolagents更青睐于双层/多层结构，而metagpt、camelai则致力于做去中心结构。当然，大部分框架都可以同时实现这些不同的结构，只是代码风格不同，读者可以自行多尝试，找到自己最喜欢的框架，与最适合某项具体任务的框架。
 
-## **六、** 总结
+## 六、 总结
 
 吴恩达教授在本节中，回顾了整套课程涉及到的内容。
 
